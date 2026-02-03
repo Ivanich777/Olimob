@@ -3,6 +3,18 @@
   flex-direction: column;
   gap: 6px;
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 0px 1000px #131414 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+  /*
+  Пришлось такую штуку написать.
+  А то при вставке имэйла/пароля стили менялись у инпутов.
+  Будет работать для хрома
+  */
 
 .input {
   width: 100%;
@@ -10,7 +22,7 @@
   padding: 0 16px;
 
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.35);
+  border: 1px solid #FFFBFB;
   border-radius: 14px;
 
   color: #fff;
@@ -36,11 +48,17 @@
   }
 }
 
-.error {
-  border-color: #ff4d4f;
+.inputContainer {
+  position: relative;
+  width: 100%;
 }
 
-.errorText {
-  font-size: 12px;
-  color: #ff4d4f;
+.icon {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
