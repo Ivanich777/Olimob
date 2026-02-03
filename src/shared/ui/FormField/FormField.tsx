@@ -12,7 +12,7 @@ export const FormField = ({ label, error, children }: FormFieldProps) => {
     <div className={cls.field}>
       <label className={cls.label}>{label}</label>
       {children}
-      {error && <span className={cls.error}>{error}</span>}
+      <span className={cls.error}>{error || "\u00A0"}</span>
     </div>
   );
 };

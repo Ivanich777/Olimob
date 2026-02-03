@@ -1,15 +1,17 @@
-import type { InputHTMLAttributes } from "react";
+import type { InputHTMLAttributes, ReactNode } from "react";
 import cls from "./Input.module.scss";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  error?: string;
+  icon?: ReactNode;
 }
 
-export const Input = ({ error, ...props }: InputProps) => {
+export const Input = ({ icon, id, ...props }: InputProps) => {
   return (
     <div className={cls.wrapper}>
-      <input className={`${cls.input} ${error ? cls.error : ""}`} {...props} />
-      {error && <span className={cls.errorText}>{error}</span>}
+      <div className={cls.inputContainer}>
+        <input id={id} className={cls.input} {...props} />
+        {icon && <div className={cls.icon}>{icon}</div>}
+      </div>
     </div>
   );
 };
