@@ -1,11 +1,10 @@
-import './App.css'
+import { BrowserRouter } from "react-router-dom";
+import { AppRouter } from "./providers/router";
 
-function App() {
-
+export const App = () => {
   return (
-    <>
-    </>
-  )
-}
-
-export default App
+    <BrowserRouter>
+      <AppRouter />
+    </BrowserRouter>
+  );
+};
