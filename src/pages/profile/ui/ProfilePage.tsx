@@ -1,10 +1,12 @@
 import { Button } from "@/shared/ui/Button";
 import cls from "./ProfilePage.module.scss";
 import { useAuthorization } from "@/features/auth/hooks/useAuthorization.ts";
+import { useAuthStore } from "@/entities/user/model/authStore.ts";
 
 export const ProfilePage = () => {
   const { handleLogout, isLoading } = useAuthorization();
-
+  const { user } = useAuthStore();
+  console.log(user);
   return (
     <div className={cls.wrapper}>
       <div className={cls.card}>
@@ -13,12 +15,12 @@ export const ProfilePage = () => {
         <div className={cls.info}>
           <div className={cls.content}>
             <span className={cls.label}>Name</span>
-            <span className={cls.value}>John Doe</span>
+            <span className={cls.value}>{user?.name}</span>
           </div>
 
           <div className={cls.content}>
             <span className={cls.label}>Email</span>
-            <span className={cls.value}>john.doe@gmail.com</span>
+            <span className={cls.value}>{user?.email}</span>
           </div>
         </div>
 
