@@ -6,7 +6,7 @@ import { useAuthStore } from "@/entities/user/model/authStore.ts";
 export const ProfilePage = () => {
   const { handleLogout, isLoading } = useAuthorization();
   const { user } = useAuthStore();
-  console.log(user);
+
   return (
     <div className={cls.wrapper}>
       <div className={cls.card}>
